@@ -17,7 +17,7 @@ def index():
 @app.route("/recipe/<int:id>", methods=["GET", "POST"])
 def recipe(id):
   comment_form = CommentForm()
-  #### Process data here
+  ### Process data here
   # Access comment data field via attribute
   new_comment = comment_form.comment.data
   # Append the comment to the comments[id] list
