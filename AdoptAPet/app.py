@@ -1,9 +1,12 @@
 from flask import Flask
+from helper import pets
+
 # Create instance of Flask object
 app = Flask(__name__)
 
+
 # Index route returns h1 tag with text
-@app.route('/')
+@app.route("/")
 def index():
     return """
     <h1>Adopt a Pet!</h1>
@@ -15,10 +18,19 @@ def index():
     </ul>
     """
 
-@app.route('/animals/<pet_type>')   
-def animals(pet_type):
 
+@app.route("/animals/<pet_type>")
+def animals(pet_type):
     html = f"<h1>List of {pet_type}</h1>"
+
+    html += "<ul>"
+
+    pets_list = pets[pet_type]
+
+    for pet in pets_list:
+        html += f"<li>{pet['name']}</li>"
+
+    html += "</ul>"
 
     return html
 
