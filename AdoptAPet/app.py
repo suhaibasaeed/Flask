@@ -27,8 +27,9 @@ def animals(pet_type):
 
     pets_list = pets[pet_type]
 
-    for pet in pets_list:
-        html += f"<li>{pet['name']}</li>"
+    for index, pet in enumerate(pets_list):
+
+        html += f"<li><a href='/animals/{pet_type}/{index}'>{pet['name']}</a></li>"
 
     html += "</ul>"
 
