@@ -40,7 +40,13 @@ def animals(pet_type):
 def pet(pet_type, pet_id):
     pet = pets[pet_type][pet_id]
 
-    return f"<h1>{pet['name']}</h1>"
+    return f"""<h1>{pet['name']}</h1>
+    <img src='{pet['url']}'/>
+    <ul>
+        <li>Age: {pet['age']}</li>
+        <li>Breed: {pet['breed']}</li>
+    </ul>
+    """
 
 
 app.run(debug=True, port=8000)
