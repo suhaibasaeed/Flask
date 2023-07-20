@@ -45,3 +45,21 @@ def orders(user_name, order_id):
     * float - accepts positive floating point values
     * path - like string but also accepts slashes
     * uuid - accepts UUID strings
+
+## Flask Templates
+
+### Rendering Templates
+* We use built in `render_template()` to render a html or jinja2 template
+  * Pass in name of template
+  * Looks for templates in the `templates/` directory
+* E.g.
+```
+from flask import Flask, render_template
+ 
+app = Flask(__name__)
+ 
+@app.route("/")
+def index():
+    return render_template("index.html")
+```
+
