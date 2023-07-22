@@ -189,3 +189,35 @@ def my_page(my_id):
 ```
 
 ### FlaskForm Class
+* Another way to create a form but using a class
+  * Gives us for mwith a submit button
+  * Inherits from `FlaskForm`
+  * E.g.
+```
+class MyForm(FlaskForm):
+    my_textfield = StringField("TextLabel")
+    my_submit = SubmitField("SubmitName")
+```
+  * Allows us to implement form as **template variables**
+* Accessing of fields is done through Class attributes
+  * E.g. of Flask app with form class
+```
+from flask import Flask, render_template
+from flask_wtf import FlaskForm
+from wtforms import StringField, SubmitField
+ 
+app = Flask(__name__)
+# Protect from CSRF attacks
+app.config["SECRET_KEY"] = "my_secret"
+ 
+class MyForm(FlaskForm):
+    # Label passed in as argument
+    my_textfield = StringField("TextLabel")
+    my_submit = SubmitField("SubmitName")
+ 
+@app.route("/")
+def my_route():
+    # Instantitate class
+    flask_form = MyForm()
+    return render_template("my_template", template_form=flask_form)
+```
