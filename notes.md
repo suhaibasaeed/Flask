@@ -85,5 +85,7 @@ My Very Interesting Website
 * Other examples of filters
   * lower
   * default
+    * Can be used to provide a default string or text if the variable doesn't exist
+    * But doesn't work when template variable is equal to `None` or empty string
   * length
   * dictsort
