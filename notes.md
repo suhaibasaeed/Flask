@@ -187,3 +187,5 @@ def my_page(my_id):
     new_variable = my_id
     ...
 ```
+
+### FlaskForm Class
