@@ -89,3 +89,58 @@ My Very Interesting Website
     * But doesn't work when template variable is equal to `None` or empty string
   * length
   * dictsort
+
+### Inheritance
+* Websites have some elements that exist on multiple webpages
+  * E.g. navigation bar
+  * Good use case for template
+    * As opposed to having same nav bar in several different places
+    * Having to change them in each place etc.
+* E.g. of `base.html`
+```
+<html>
+  <head>
+    <title>MY WEBSITE</title>
+  </head>
+  <body>
+  {% block content %}{% endblock %}
+  </body>
+</html>
+```
+* Our `index.html` will include `extends` keyword with name of template
+  E.g.
+```
+{% extends "base.html"  %}
+ 
+{% block content %}
+    <p>This is my paragraph for this page.</p>
+{% endblock %}
+```
+* Final rendered `index.html` template looks like below
+```
+<html>
+  <head>
+    <title>MY WEBSITE</title>
+  </head>
+  <body>
+    <p>This is my paragraph for this page.</p>
+  </body>
+</html>
+```
+* Div element can be used for navigation bar
+  * E.g.
+```
+<!DOCTYPE html>
+<html>
+  <body>
+    <!-- Insert navigation bar HTML below -->
+    <div>
+  <a href="/">Recipes</a>
+   | 
+  <a href="/about">About</a>
+</div>
+    {% block content %}
+    {% endblock %}
+  </body>
+</html>
+```
