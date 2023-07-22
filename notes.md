@@ -63,3 +63,12 @@ def index():
     return render_template("index.html")
 ```
 
+### Template Variables
+* We can also pass variables to `render_template()` function
+  * E.g.
+```
+flask_variable = "Text for my template"
+ 
+render_template("my_template.html", template_variable=flask_variable)
+```
+* Possible to use keyword args too
