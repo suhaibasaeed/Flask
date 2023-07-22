@@ -144,3 +144,20 @@ My Very Interesting Website
   </body>
 </html>
 ```
+
+## Flask Forms
+
+### Introduction
+* Forms allow us to get data from a user
+
+### Flask Request Object
+* A request is how clients and servers communicate
+* Flask routes only support GET requests by default
+  * POST allows us to send data i.e. through form
+* To allow route handle POST requests: `@app.route("/", methods=["GET", "POST"])`
+  * Even though GET is default we need to explicitly specify it to allow both
+* We can get the form's data via flasks `request` object
+  * Needs to be imported
+  * Specifically **form** attribute
+    * Which is dictionary with forms fields as keys
+    * E.g. `text_in_field = request.form["my_text"]`
