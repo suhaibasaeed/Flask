@@ -72,3 +72,18 @@ flask_variable = "Text for my template"
 render_template("my_template.html", template_variable=flask_variable)
 ```
 * Possible to use keyword args too
+
+### Variable Filters
+* Jinja2 filters allows us to modify a variables output
+* E.g.
+```
+{{ template_heading |  title }}
+ 
+OUTPUT
+My Very Interesting Website
+```
+* Other examples of filters
+  * lower
+  * default
+  * length
+  * dictsort

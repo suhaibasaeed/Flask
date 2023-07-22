@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <a href="/">Back To Recipe List</a>
+    <h1>{{ template_recipe | title }}</h1>
+    <p>{{ template_description | default("A " + template_recipe + " recipe.") }}</p>
+    <h3>Ingredients</h3>
+    <p> No. of Ingredients - {{ template_ingredients | length }} </p>
+    <ul>
+      <!-- Ingredients list elements
+      should fill the <li> tags -->
+      <li> {{ template_ingredients[0] }} </li>
+      <li> {{ template_ingredients[1] }} </li>
+      <li> {{ template_ingredients[2] }} </li>
+    </ul>
+    {{ template_instructions | dictsort }}
+  </body>
+</html>
