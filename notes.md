@@ -161,3 +161,29 @@ My Very Interesting Website
   * Specifically **form** attribute
     * Which is dictionary with forms fields as keys
     * E.g. `text_in_field = request.form["my_text"]`
+
+### Route Selection
+* Flask route paths may change as sites become bigger
+* We can use `url_for()` by passing in routes **function name** to get URL path
+* E.g. for index function
+```
+@app.route('/')
+def index:
+```
+  * Below 2 hyperlinks return same thing
+```
+<a href="/">Index Link</a>
+<a href="{{ url_for('index') }}">Index Link</a>
+```
+  * We can still pass arguments to URL
+```
+  
+```
+  * Complete example
+```
+@app.route("/my_path/<int:my_id>"), methods=["GET", "POST"])
+def my_page(my_id):
+    # Access flask_name in this function
+    new_variable = my_id
+    ...
+```
