@@ -221,3 +221,34 @@ def my_route():
     flask_form = MyForm()
     return render_template("my_template", template_form=flask_form)
 ```
+
+### Template Form Variables
+* We create form in template by acessing attributes of form passed into template
+* E.g.
+```
+class MyForm(FlaskForm):
+    my_textfield = StringField("TextLabel")
+    my_submit = SubmitField("SubmitName")
+
+my_form = MyForm()
+ 
+return render_template(template_form=my_form)
+```
+  * Our template can look like the below
+```
+<form action="/" method="post">
+    {{ template_form.hidden_tag() }} # Handles necessary tasks for CSRF attacks
+    {{ template_form.my_textfield.label }} # Get label of field
+    {{ template_form.my_textfield() }} # Field itself
+    {{ template_form.my_submit() }}
+</form>
+```
+  * Rendered HTML
+```
+<form action="/" method="post">
+    <input id="csrf_token" name="csrf_token" type="hidden" value="ImI1YzIxZjUwZWMxNDg0ZDFiODAyZTY5M2U5MGU3MTg2OThkMTJkZjQi.XupI5Q.9HOwqyn3g2pveEHtJMijTu955NU">
+    <label for="my_textfield">TextLabel</label>
+    <input id="my_textfield" name="my_textfield" type="text" value="">
+    <input id="my_submit" name="my_submit" type="submit" value="SubmitName">
+</form>
+```

@@ -3,14 +3,14 @@ from helper import recipes, descriptions, ingredients, instructions
 
 app = Flask(__name__)
 
-@app.route('/')
+
+@app.route("/")
 def index():
-  
-  #### Return a rendered index.html file
-  return render_template("index.html")
+    #### Return a rendered index.html file
+    return render_template("index.html")
+
 
 @app.route("/recipe/<int:id>")
 def recipe(id):
-    
-  #### Return a rendered fried_egg.html file
-  return render_template("fried_egg.html")
+    #### Return a rendered fried_egg.html file
+    return render_template("fried_egg.html")
