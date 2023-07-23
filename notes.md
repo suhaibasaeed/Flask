@@ -252,3 +252,9 @@ return render_template(template_form=my_form)
     <input id="my_submit" name="my_submit" type="submit" value="SubmitName">
 </form>
 ```
+
+### Handling FlaskForm Data
+* POST request allows submitted form data to be sent to server
+  * We can get this data from the form instance via **data atrribute**
+  * E.g. `form_data = flask_form.my_textfield.data`
+* Remember to add POST request to route decorate E.g. `methods=["GET", "POST"]`
