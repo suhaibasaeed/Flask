@@ -27,7 +27,9 @@
   <form method="POST">
   {{ template_form.hidden_tag() }}
   <!-- Insert StringField elements here -->  
-  {{  }}
+  {{ template_form.comment.label }}
+  {{ template_form.comment() }}
+  {{ template_form.submit() }}
   
   <!-- Insert SubmitField element here -->
     
