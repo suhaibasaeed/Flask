@@ -292,3 +292,15 @@ if my_form.validate_on_submit():
   * We usually need to loop through `RadioField` to get the components
   * E.g. `my_radio_group = RadioField("Radio Group Label", choices=[("id1", "One"), ("id2","Two"), ("id3","Three")])`
 * Good practice is to define forms in separate file like **forms.py**
+
+### Redirecting
+* The `redirect()` function allows us to move from one route to another
+  * Example situation: we create form in one route but after **form submission** want to end up in another route
+  * E.g. `redirect("url_string")`
+  * Good to use after we have processed and saved data within `validate_on_sumbit` check
+  * Allows us to avoid code duplication
+* We can also use it in conjunction with `url_for()` so we can specify the function name instead
+  * Prevents URL string pitfalls
+  * E.g. `redirect(url_for("new_route", _external=True, _scheme='https'))`
+    * Ensures we re-direct to HTTPS instead of HTTP
+  * We still have option of using keywork args: `redirect(url_for("new_route", new_var=this_var, _external=True, _scheme='https'))`
