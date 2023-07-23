@@ -277,3 +277,18 @@ my_textfield = StringField("TextLabel", validators=[DataRequired()])
 if my_form.validate_on_submit():
     # get form data
 ```
+
+### More Form Fields
+* WTForms also supports other objects for form fields
+* **TextAreaField** - Supports multi-line input
+  * E.g. `my_text_area = TextAreaField("Text Area Label")`
+* **BooleanField** - Allows us to create a checkbox element
+  * Data returned is either True or False
+  * E.g. `my_checkbox = BooleanField("Checkbox Label")`
+* **RadioField** - Allows us to create radio button group
+  * 1st argument is label and also has keyword arg called `choices` which is list of tuples
+    * Each tuple is for a button
+      * Button ID string and label string
+  * We usually need to loop through `RadioField` to get the components
+  * E.g. `my_radio_group = RadioField("Radio Group Label", choices=[("id1", "One"), ("id2","Two"), ("id3","Three")])`
+* Good practice is to define forms in separate file like **forms.py**
