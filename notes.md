@@ -258,3 +258,22 @@ return render_template(template_form=my_form)
   * We can get this data from the form instance via **data atrribute**
   * E.g. `form_data = flask_form.my_textfield.data`
 * Remember to add POST request to route decorate E.g. `methods=["GET", "POST"]`
+
+### Validation
+* Used to check things like if data is populated or in correct format
+* Done in form class using `validators` parameter in form field **definition**
+* E.g. below makes field require it to actually have something in there
+  * Handles user notification for us
+```
+from wtforms.validators import DataRequired
+
+my_textfield = StringField("TextLabel", validators=[DataRequired()])
+```
+* A way of checking for valid form submission is using `validate_on_submit()`
+  * Returns True if all associated form validators are ok
+  * If it returns False then route function can just move on to rendering template etc
+  * E.g. 
+```
+if my_form.validate_on_submit():
+    # get form data
+```
