@@ -19,4 +19,10 @@ categories = [
     ("visited", "Visited!!!"),
 ]
 
+
 ## Create Form Here
+class AddLocationForm(FieldsRequiredForm):
+    name = StringField("Location Name", validators=[DataRequired()])
+    description = TextAreaField("Description", validators=[DataRequired()])
+    category = RadioField("Category", choices=categories, validators=[DataRequired()])
+    submit = SubmitField("Add Location")

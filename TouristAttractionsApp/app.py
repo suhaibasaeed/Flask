@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from locations import Locations
+from forms import AddLocationForm
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "SECRET_PROJECT"
@@ -19,32 +20,48 @@ DEL_ACTION = "X"
 def locations(category):
     locations = visit.get_list_by_category(category)
     ## Check the request for form data and process
-    if False:
-        [(name, action)] = [(None, None)]
+    if request.method == "POST":
+        [(name, action)] = request.form.items()
 
         if action == UP_ACTION:
             visit.moveup(name)
         elif action == DEL_ACTION:
             visit.delete(name)
+
+    add_location = AddLocationForm()
+
     ## Return the main template with variables
-    return ""
+    return render_template(
+        "locations.html",
+        category=category,
+        categories=categories,
+        locations=locations,
+        add_location=add_location,
+    )
 
 
 @app.route("/add_location", methods=["POST"])
 def add_location():
     ## Validate and collect the form data
 
-    if True:
-        name = None
-        description = None
-        category = None
+    # Create form instance
+    add_form = AddLocationForm(csrf_enabled=False)
+
+    if add_form.validate_on_submit():
+        name = add_form.name.data
+        description = add_form.description.data
+        category = add_form.category.data
         visit.add(name, description, category)
 
     ## Redirect to locations route function
-    return ""
+    return redirect(
+        url_for("locations", category=category, _external=True, _scheme="https")
+    )
 
 
 @app.route("/")
 def index():
     ## Redirect to locations route function
-    return ""
+    return redirect(
+        url_for("locations", category="recommended", _external=True, _scheme="https")
+    )
