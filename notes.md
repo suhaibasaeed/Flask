@@ -304,3 +304,12 @@ if my_form.validate_on_submit():
   * E.g. `redirect(url_for("new_route", _external=True, _scheme='https'))`
     * Ensures we re-direct to HTTPS instead of HTTP
   * We still have option of using keywork args: `redirect(url_for("new_route", new_var=this_var, _external=True, _scheme='https'))`
+
+
+## SQL - Manipulation
+
+### Introduction to SQL
+* SQL uses declarative statements
+* SQLite RDBMS used
+
+### 
