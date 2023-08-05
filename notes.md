@@ -312,4 +312,30 @@ if my_form.validate_on_submit():
 * SQL uses declarative statements
 * SQLite RDBMS used
 
-### 
+### Relational Databases
+* Relational DBs organise info into table/s
+* A table is a **collection** of data
+  * Organised into rows and columns
+* Data types
+  * **INTEGER** - Positive/Negative number
+  * **TEXT** - String
+  * **DATE** - Formatted as YYYY-MM-DD
+  * **REAL** - Decimal
+  
+### Statements
+* SQL **statement** is text the DB sees as **valid command**
+  * Always end in semicolon
+* Doesn't matter if statement is on one line or multiple
+* E.g.
+```
+CREATE TABLE table_name (
+   column_1 data_type, 
+   column_2 data_type, 
+   column_3 data_type
+);
+```
+  * `CREATE TABLE` - Clause which does specfic task
+    * Always written in capitals
+  * `table_name` - Name of table to apply command to
+  * `(column_1 data_type, column_2 data_type, column_3 data_type)` - Parameter - Essentially list of column names with corresponding data type
+
