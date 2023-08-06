@@ -339,3 +339,85 @@ CREATE TABLE table_name (
   * `table_name` - Name of table to apply command to
   * `(column_1 data_type, column_2 data_type, column_3 data_type)` - Parameter - Essentially list of column names with corresponding data type
 
+### Create
+* `CREATE` statements are used to create **new tables** in DB
+* E.g.
+```
+CREATE TABLE celebs (
+   id INTEGER, 
+   name TEXT, 
+   age INTEGER
+);
+```
+  * celebs is name of table
+  * 3 columns in DB - `id`, `name` & `age`
+
+### Insert
+* `INSERT` statements adds **new row** to table
+* E.g.
+```
+INSERT INTO celebs (id, name, age) 
+VALUES (1, 'Justin Bieber', 22);
+```
+  * `INSERT INTO` - Clause to add specific row/rows
+  * `(id, name, age)` - paramater to identify columns to add data into
+  * `VALUES` - Clause to indicate data to insert
+  * `(1, 'Justin Bieber', 22)` - Parameter identifying values to insert
+    * INTEGER, TEXT and INTEGER respectively
+
+### Select
+* Used to **fetch data** from DB
+* To return all data in `name` column of `celebs` table: `SELECT name FROM celebs;`
+* Or we could returns all column using wildcard character `*`: `SELECT * FROM celebs;`
+
+### Alter
+* `ALTER TABLE` allows us to add **new column** to table
+* Example below adds new column `twitter_handle` to `celebs` table
+```
+ALTER TABLE celebs 
+ADD COLUMN twitter_handle TEXT;
+```
+  * All rows that existed before column was added will have `NULL` (∅) value for them
+
+### Update
+* **Edits** row in table - i.e. existing record
+* Example below changes record with id = 4 to have `twitter_handle` of `@taylorswift13`
+```
+UPDATE celebs 
+SET twitter_handle = '@taylorswift13' 
+WHERE id = 4; 
+```
+  * `WHERE` is clause used to indicate **which row** we want to update
+
+### Delete
+* `DELETE FROM` statement allows us to delete existing row/s
+* Below example deletes all rows in `celebs` table where the `twitter_handle` column is **blank**
+```
+DELETE FROM celebs 
+WHERE twitter_handle IS NULL;
+```
+  * `IS NULL` is SQL condition that returns TRUE when value is `NULL` and FALSE otherwise
+
+
+### Constraints
+* Constraints allow us to add info about how column can be used
+  * Done **after** specifying **type**
+  * Can be used to tell DB to reject data that doesn't adhere to specific rule
+* Example below sets contraints on celebs table
+```
+CREATE TABLE celebs (
+   id INTEGER PRIMARY KEY, 
+   name TEXT UNIQUE,
+   date_of_birth TEXT NOT NULL,
+   date_of_death TEXT DEFAULT 'Not Applicable'
+);
+```
+  * `PRIMARY KEY` column used to uniquely ID row
+    * If we tried to add a new row with identical value it would not work
+    * **Table can only have one primary key field**
+  * `UNIQUE` columns have different values for each row
+    * Unlike primary keys we can have **multiple** columns in a table
+  * `NOT NULL` columns must have a value inside them
+    * If we tried to create one with nothing in it then it wouldn't work
+  * `DEFAULT` columns take an argument which allow us to specify default value
+    * If we don't specify a value for it
