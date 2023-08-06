@@ -319,7 +319,7 @@ if my_form.validate_on_submit():
 * Data types
   * **INTEGER** - Positive/Negative number
   * **TEXT** - String
-  * **DATE** - Formatted as YYYY-MM-DD
+  * **DATE** - Formatted as YYYY-MM-DD E.g. '1940-05-30'
   * **REAL** - Decimal
   
 ### Statements
