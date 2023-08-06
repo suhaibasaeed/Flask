@@ -421,3 +421,14 @@ CREATE TABLE celebs (
     * If we tried to create one with nothing in it then it wouldn't work
   * `DEFAULT` columns take an argument which allow us to specify default value
     * If we don't specify a value for it
+
+
+## Queries
+
+### Select
+* We can focus on a few columns in a table using `SELECT` statement
+* E.g.
+```
+SELECT column1, column2 
+FROM table_name;
+```
