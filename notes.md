@@ -432,3 +432,14 @@ CREATE TABLE celebs (
 SELECT column1, column2 
 FROM table_name;
 ```
+
+### As
+* `AS` keyword allows us to give **alias** to a column
+  * Recommended to do this in **single quotes**
+  * PostgreSQL can require double quotes or even no quotes
+* Original column name **doesn't change**
+* E.g
+```
+SELECT name AS 'Titles'
+FROM movies;
+```
