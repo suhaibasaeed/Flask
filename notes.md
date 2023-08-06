@@ -443,3 +443,39 @@ FROM table_name;
 SELECT name AS 'Titles'
 FROM movies;
 ```
+
+### Distinct
+* The `DISTINCT` keyword allows us to return **only unqiue values** in a column
+  * Any duplicated rows are filtered out
+* E.g.
+```
+SELECT DISTINCT tools 
+FROM inventory;
+```
+
+### Where
+* Allows us to filter query results using a condition
+* We can use **comparsion operators** with `WHERE` clauses
+  1. Equal to - =
+  2. Not equal to - !=
+  3. Greater than - >
+  4. Less than - <
+  5. Greater than or equal to - >=
+  6. Less than or equal to<=
+* E.g.
+```
+SELECT *
+FROM movies
+WHERE imdb_rating > 8;
+```
+
+### Like
+* `LIKE` operator allows us to **compare** similar values
+  * Used in conjection with `WHERE`
+* In e.g. below we want to get all movies that start with `se` and end in `en` with one character in between
+```
+SELECT * 
+FROM movies
+WHERE name LIKE 'Se_en';
+```
+  * `Se_en` is a pattern with `_` meaning any character
