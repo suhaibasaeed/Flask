@@ -479,3 +479,5 @@ FROM movies
 WHERE name LIKE 'Se_en';
 ```
   * `Se_en` is a pattern with `_` meaning any character
+
+### Like II
