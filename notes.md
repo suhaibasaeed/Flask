@@ -510,3 +510,43 @@ WHERE imdb_rating IS NOT NULL;
 ```
 
 ### Between
+* Allows us to filter results **within range** when used alongside `WHERE` clause
+  * E.g. below returns movies which have a year value of 1990 - 1999 inclusive
+```
+SELECT *
+FROM movies
+WHERE year BETWEEN 1990 AND 1999;
+```
+* If value is text then `BETWEEN` filters based on alphabetical range
+  * But 2nd value **NOT included** unless value is that letter only
+  * In e.g. below the results will include movie whose names start with letter between A - I
+    * Unless the name is `J` only
+    * `Jaws` would not be returned but `J would`
+```
+SELECT *
+FROM movies
+WHERE name BETWEEN 'A' AND 'J';
+```
+
+### And
+* `AND` operator allows to **combine multiple conditions** alongside `WHERE` clause
+  * Both conditions need to be True
+* Example berlow returns movies with the genre `romance` with a `year` value during the 90's
+```
+SELECT * 
+FROM movies
+WHERE year BETWEEN 1990 AND 1999 AND genre = 'romance';
+```
+
+### Or
+* `OR` operator conversely will return results where **at least one** condition is True
+* E.g.
+```
+SELECT *
+FROM movies
+WHERE year > 2014
+   OR genre = 'action';
+```
+
+### Order By
+* 
