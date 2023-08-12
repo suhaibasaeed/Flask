@@ -500,3 +500,13 @@ WHERE name LIKE '%man%';
 ```
 
 ### Is Null
+* Unknown values are usually displayed as `NULL` value
+* We can use the `IS NULL` & `IS NOT NULL` operators with these
+* Example below get's all movies that have an IMDB rating
+```
+SELECT name
+FROM movies 
+WHERE imdb_rating IS NOT NULL;
+```
+
+### Between
