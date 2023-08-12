@@ -583,3 +583,21 @@ ORDER BY imdb_rating DESC LIMIT 3;
 * Clause always **goes at end** and isn't supported by all DBs
 
 ### Case
+* Essentially allows us to do if-then logic in SQL
+* E.g.
+```
+SELECT name,
+ CASE
+  WHEN imdb_rating > 8 THEN 'Fantastic'
+  WHEN imdb_rating > 6 THEN 'Poorly Received'
+  ELSE 'Avoid at All Costs'
+ END
+FROM movies;
+```
+  * We want to rank ratings using 3 levels
+    * rating > 8 - Fantastic
+    * rating > 6 - Poorly Received
+    * Else: Avoid at All Costs
+    * `THEN` gives us new column in query result
+    * `CASE` statement **must end** with `END`
+  * In e.g. above we can rename new column using `END AS` instead of `END`
