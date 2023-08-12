@@ -481,3 +481,22 @@ WHERE name LIKE 'Se_en';
   * `Se_en` is a pattern with `_` meaning any character
 
 ### Like II
+* `%` is also wildcard character which can be used with `LIKE`
+* Example below only includes movies where the name begins with the letter `A`
+```
+SELECT * 
+FROM movies
+WHERE name LIKE 'A%';
+```
+* Essentially matches 0+ missing letters in pattern
+  * E.g. `%a` matches all movies with end in letter `a`
+* It's possible to use `%` **both** before and after pattern
+  * In E.g. below any movie with `man` in it's name will be returned
+  * Will match both `Batman` and `Man of Steel` as `LIKE` is **NOT case sensitive**
+```
+SELECT * 
+FROM movies 
+WHERE name LIKE '%man%';
+```
+
+### Is Null
