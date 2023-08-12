@@ -549,4 +549,37 @@ WHERE year > 2014
 ```
 
 ### Order By
-* 
+* Allows us to sort results
+  * Could be numerically or alphabetically
+  * Either in **ascending** or **descending** order
+* In e.g. below we sort by name column alphabetically in ascending order
+```
+SELECT *
+FROM movies
+ORDER BY name;
+```
+* To order in descending order use `DESC`
+  * E.g.
+```
+SELECT *
+FROM movies
+WHERE imdb_rating > 8
+ORDER BY year DESC;
+```
+  * `ASC` is ascending
+* **Column we're sorting on doesn't have to be one we display**
+* If we're using `WHERE` clause `ORDER BY` always has to come **after it**
+
+### Limit
+* Sometimes we may have large tables and want to **limit** amount of data returned.
+  * Also allows queries to **run faster**
+* `LIMIT` clause allows us to specify **max no. of rows** returned
+* E.g.
+```
+SELECT *
+FROM movies
+ORDER BY imdb_rating DESC LIMIT 3;
+```
+* Clause always **goes at end** and isn't supported by all DBs
+
+### Case
