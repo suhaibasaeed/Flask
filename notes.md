@@ -601,3 +601,14 @@ FROM movies;
     * `THEN` gives us new column in query result
     * `CASE` statement **must end** with `END`
   * In e.g. above we can rename new column using `END AS` instead of `END`
+
+
+## SQLite
+
+* DB engine
+  * i.e. software that allows users to interact with RDB
+* Stores DB in **single file**
+  * Mkaes copying and sharing DB very easy
+### Drawbacks
+* Makes multiple concurrant updates impossible
+  * Only one user can write to file at same time
