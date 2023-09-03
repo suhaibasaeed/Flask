@@ -605,10 +605,24 @@ FROM movies;
 
 ## SQLite
 
-* DB engine
+* Very popular DB engine
   * i.e. software that allows users to interact with RDB
 * Stores DB in **single file**
-  * Mkaes copying and sharing DB very easy
+  * Makes copying and sharing DB very easy
+* Allows DB use without server application
+* DB on same disk as app
+
 ### Drawbacks
 * Makes multiple concurrant updates impossible
   * Only one user can write to file at same time
+* Security
+* Missing advanced features that other DB systems have
+* No validation of data types
+  * Allows data of any type to be in any column
+    * Still uses schemas but doesn't enforce it
+
+### DB Browser
+* Visual tool that is used to organise commands sent to SQLite
+  * Also allows you to view column structure of tables
+* Can be used to visualise what SQL command will do without actually affecting DB
+  * Changes can be commited once we're happy
