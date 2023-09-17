@@ -631,4 +631,13 @@ FROM movies;
 ## Introduction to Flask-SQLAlchemy
 
 ### Why Have DBs In Your Web Apps
-* Web apps
+* Web app data is typically organised in **related entities**
+  * E.g. users and products by means of purchasing
+  * Music albums and artists by authoring
+* RDBs has **tables** which represent **entities** and **relationships** between them
+  * Attributes of entites have constraints
+    * E.g. NAME attribute is string
+    * PASSWORD attribute can't be NULL
+* Entites, attributes and relationships are all defined in **DB schema**
+
+### Flask Application with Flask-SQLAlchemy
