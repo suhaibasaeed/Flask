@@ -626,3 +626,9 @@ FROM movies;
   * Also allows you to view column structure of tables
 * Can be used to visualise what SQL command will do without actually affecting DB
   * Changes can be commited once we're happy
+
+
+## Introduction to Flask-SQLAlchemy
+
+### Why Have DBs In Your Web Apps
+* Web apps
