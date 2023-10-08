@@ -720,3 +720,17 @@ r1 = Reader(id = 342, name = 'Ann', surname = 'Adams', email = 'ann.adams@exampl
 ```
 * We interact with DB entries as normal python objects
   * E.g `print("My first reader:", r1.name) # prints My first reader: Ann`
+
+### Creating DB Entries - Relationships
+* Creating objects for tables that have foreign keys is a little different
+  * As we need to set the foreign keys that reference primary keys in other tables
+* E.g. with Review table
+```
+b1 = Book(id = 123, title = 'Demian', author_name = 'Hermann', author_surname = 'Hesse')
+b2 = Book(id = 533, title = 'The stranger', author_name = 'Albert', author_surname = 'Camus')
+r1 = Reader(id = 342, name = 'Ann', surname = 'Adams', email = 'ann.adams@example.com')
+r2 = Reader(id = 312, name = 'Sam', surname = 'Adams', email = 'sam.adams@example.com')
+
+rev1 = Review(id = 435, text = 'This book is amazing...', stars = 5, reviewer_id = r1.id, book_id = b1.id)
+```
+* **If we don't explicitly set primary key it's auto created for us when adding entry to DB**
