@@ -642,4 +642,17 @@ FROM movies;
 * Schema Design - Book Club Scenario
   * Each month we chose book for friends to rate/review
   * App manages readers, list of books chosen and their ratings
-  * 
+  * **Entities**
+    * `Reader`, `Bool`, `Review`, `Annotation`
+      * One table for each
+  * **Attributes** - Properties of entity
+    * E.g Attrs of `Reader` are NAME, SURNAME and EMAIL
+  * **Relationships**
+    * Readers are in relationships with books by reading and annotating them.
+      * A reader can read and annotate multiple books
+      * A single book can can many reviews and annotations
+
+### Flask Application with Flask-SQL-Alchemy
+* Flask extension that supports use of Python SQLAlchemy SQL Toolkit
+* We need to specify DB URL
+  * `app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///myDB.db'`
