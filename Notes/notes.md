@@ -691,3 +691,14 @@ class Book(db.Model):
       * `lazy = dynamic` means related objects load as **SQLAlchemy query objects**
       * **This only covers one side in relationship - i.e. one book to many reviews and not other side**
 
+## Declaring Relationships - Foreign Keys
+* To complete our one-to-many relation we also need to specify **foreign keys** for model on **many** side
+* Foreign key is field in table that references **primary key** in another table
+* In above example the relationships in opposite direction are as follows
+  * A single review can only be for one book
+  * A single review can only be done by one reader
+* E.g. We need to specify the primary key for `Book` table in Foreign key field
+  * `book_id = db.Column(db.Integer, db.ForeignKey('book.id'))`
+    * `book.id` is Primary key of Book table but book_id is foreign key field
+
+# Initialis
