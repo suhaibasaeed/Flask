@@ -626,3 +626,20 @@ FROM movies;
   * Also allows you to view column structure of tables
 * Can be used to visualise what SQL command will do without actually affecting DB
   * Changes can be commited once we're happy
+
+
+## INTRODUCTION TO FLASK-SQLALCHEMY
+
+### Why Have Databases in Your Web Applications
+* DB data organised into entities that are related
+  * E.g. Users related to products by purchasing
+  * Albums related to artist by authoring
+* DBs consist of tables that represent entities and their relationships
+* Entity **attributes** are **constrained**
+  * E.g. NAME attr is string or PASSWORD has to be non-empty
+* All of this defined in DB **schema**
+  * Without any data
+* Schema Design - Book Club Scenario
+  * Each month we chose book for friends to rate/review
+  * App manages readers, list of books chosen and their ratings
+  * 
