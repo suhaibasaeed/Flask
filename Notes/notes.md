@@ -734,3 +734,5 @@ r2 = Reader(id = 312, name = 'Sam', surname = 'Adams', email = 'sam.adams@exampl
 rev1 = Review(id = 435, text = 'This book is amazing...', stars = 5, reviewer_id = r1.id, book_id = b1.id)
 ```
 * **If we don't explicitly set primary key it's auto created for us when adding entry to DB**
+
+## DBs in Flask - Reading, Updating & Deleting
