@@ -13,3 +13,4 @@ db = SQLAlchemy(app) #database instance
 @app.route('/home')
 def home():
     return "Congrats! You have just created your first Flask application supporting databases!"
+
