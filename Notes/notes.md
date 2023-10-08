@@ -691,7 +691,7 @@ class Book(db.Model):
       * `lazy = dynamic` means related objects load as **SQLAlchemy query objects**
       * **This only covers one side in relationship - i.e. one book to many reviews and not other side**
 
-## Declaring Relationships - Foreign Keys
+### Declaring Relationships - Foreign Keys
 * To complete our one-to-many relation we also need to specify **foreign keys** for model on **many** side
 * Foreign key is field in table that references **primary key** in another table
 * In above example the relationships in opposite direction are as follows
@@ -701,4 +701,22 @@ class Book(db.Model):
   * `book_id = db.Column(db.Integer, db.ForeignKey('book.id'))`
     * `book.id` is Primary key of Book table but book_id is foreign key field
 
-# Initialis
+### Initialising DB
+* The previous code doesn't intialise DB according to declared models
+  * To do this run code below
+```
+python
+>>> from app import db
+>>> db.create_all() # After this DB schema and myDB.db DB file created as per URI config field
+```
+
+### Creating DB Entries
+* SQLAlchemy ORM (Object Relational Mapper) allows us to create DB entries as instances of Class (objects)
+* E.g.
+```
+from app import Reader, Book, Review
+b1 = Book(id = 123, title = 'Demian', author_name = 'Hermann', author_surname = 'Hesse', month = "February", year = 2020)
+r1 = Reader(id = 342, name = 'Ann', surname = 'Adams', email = 'ann.adams@example.com')
+```
+* We interact with DB entries as normal python objects
+  * E.g `print("My first reader:", r1.name) # prints My first reader: Ann`
