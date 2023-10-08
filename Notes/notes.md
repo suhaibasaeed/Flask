@@ -679,3 +679,15 @@ class Book(db.Model):
       * `unique` - Values in column must be unique when True
       * `index` - Column searchable by values when True
       * `primary_key` - column is primary key when True
+
+### Declaring One-to-Many Relationships
+* In SQLAlchemy relationships declared via `.relationship()` method
+* In our case we have one book with many reviews
+  * Plus one reader with many reviews
+  * Thus we add relationship field to `Book` and `Reader` models via below
+    * `reviews = db.relationship('Review', backref='book', lazy='dynamic')`
+      * First argument is for which model is on **many side** or relationship (Review)
+      * `backref = 'book'` puts `book` attr in `Review` Class that refers back to **Book object**
+      * `lazy = dynamic` means related objects load as **SQLAlchemy query objects**
+      * **This only covers one side in relationship - i.e. one book to many reviews and not other side**
+
