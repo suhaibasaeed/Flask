@@ -768,3 +768,16 @@ reviewer_111 = review.reviewer
   * Or another way to do the above would be: reviewer_111 = `Review.query.get(111).reviewer`
     * One review has one reader/reviewer
   * We could acheive the same using .all() too as one reader can have many reviews: `reviews_123 = Reader.query.get(123).reviews.all()`
+
+### Queries: Filtering
+* Sometimes we may only want specific entries and not all
+  * We can use .filter() method for this
+    * But we still use `query` attr
+    * Returns `Query` object which we need to do additional methods on
+  * E.g. get books from `Book` table from year 2020
+    * `Book.query.filter(Book.year == 2020).all()`
+      * Instead of `all()` we could do `.first()` or `.count()`
+* We can also specify **multiple criteria** by separating them via **comma** that acts as AND operator
+  * E.g. below teturns all reviews with a start rating of 3 and above for the book with ID 1
+  * `Review.query.filter(Review.stars <= 3, Review.book_id == 1).all()`
+* Another option is `filter_by()` method which usses attribute-value for filtering
