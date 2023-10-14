@@ -738,3 +738,15 @@ rev1 = Review(id = 435, text = 'This book is amazing...', stars = 5, reviewer_id
 ## DBs in Flask - Reading, Updating & Deleting
 
 ### Queries - query.all() and query.get()
+* To query DB table in Flask with SQLAlchemy we use `.query attr`
+  * E.g. `TableName.query.all()` gives us all entries from model
+  * If we know the primary key of entry we need we can use `.get()` method instead `TableName.query.get(123)`
+    * We can then access attributes
+* ORM allows us to essentially treat DB table as **class** and DB rows and **objects**
+  * E.g.
+```
+readers = Reader.query.all()
+for reader in readers: 
+    print(reader.name)
+
+```
