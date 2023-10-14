@@ -790,3 +790,26 @@ reviewer_111 = review.reviewer
       * `%` represents 0/1/multiple characters
 * We can also order the returned results by using `order_by()` method on `query` attr
   * E.g. `ordered_books = Book.query.order_by(Book.year).all()`
+  
+### Session - Add & Rollback
+* DB transactions include additions, removals and updating of DB entries
+* DB **session** entails one or more transaction
+  * **Comitting** ends transaction by saving it to DB permanently - done via `.commit()` method
+    * Rollback rejects pending transactions
+* In Flask-SQLAlchemy DB is changed in context of sessions
+  * Uses `session` atr of DB instance
+    * Entry added to session via `.add()` method
+* E.g below creates new Reader entries and tries to add to DB.
+  * 2nd reader will fail as info is duplicated from 1st - Try allows us to gracefully rollback and continue code execution
+```
+from app import db, Reader
+new_reader1 = Reader(name = "Nova", surname = "Yeni", email = "nova.yeni@example.com")
+new_reader2 = Reader(name = "Nova", surname = "Yuni", email = "nova.yeni@example.com")
+new_reader3 = Reader( name = "Tom", surname = "Grey", email = "tom.grey@example.edu")
+
+db.session.add(new_reader1)
+try:
+    db.session.commit()
+except:
+    db.session.rollback()
+```
