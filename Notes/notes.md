@@ -750,3 +750,21 @@ for reader in readers:
     print(reader.name)
 
 ```
+
+### Queries: Retreive Related Objects
+* To get related objects of an object we can access the attribute we defined with `.relationship()` method
+  * E.g. to get all reviews of the reader with ID 123
+```
+reader = Reader.query.get(123)
+reviews_123 = reader.reviews.all()
+```
+  * reviews attr was defined in Reader model column: `reviews = db.relationship('Review', backref='reviewer', lazy = 'dynamic')`
+* To fetch a single object we can use the `backref` field in the `relationship()`
+  * E.g. For `Review` object we can get authoring `Reader` as below
+```
+review = Review.query.get(111)
+reviewer_111 = review.reviewer
+```
+  * Or another way to do the above would be: reviewer_111 = `Review.query.get(111).reviewer`
+    * One review has one reader/reviewer
+  * We could acheive the same using .all() too as one reader can have many reviews: `reviews_123 = Reader.query.get(123).reviews.all()`
