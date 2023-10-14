@@ -736,3 +736,5 @@ rev1 = Review(id = 435, text = 'This book is amazing...', stars = 5, reviewer_id
 * **If we don't explicitly set primary key it's auto created for us when adding entry to DB**
 
 ## DBs in Flask - Reading, Updating & Deleting
+
+### Queries - query.all() and query.get()
