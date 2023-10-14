@@ -781,3 +781,12 @@ reviewer_111 = review.reviewer
   * E.g. below teturns all reviews with a start rating of 3 and above for the book with ID 1
   * `Review.query.filter(Review.stars <= 3, Review.book_id == 1).all()`
 * Another option is `filter_by()` method which usses attribute-value for filtering
+
+### Queries: Advanced Filtering
+* More complex queries like checking if column starts or neds with string are also possible
+  * E.g.
+    *  Get emails that end with `edu` - `education = Reader.query.filter(Reader.email.endswith('edu')).all()`
+    * Use `.like()` method to get readers with emails that have `.` before @ sign in email: `emails = Reader.query.filter(Reader.email.like('%.%@%')).all()`
+      * `%` represents 0/1/multiple characters
+* We can also order the returned results by using `order_by()` method on `query` attr
+  * E.g. `ordered_books = Book.query.order_by(Book.year).all()`
