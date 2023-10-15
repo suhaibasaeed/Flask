@@ -838,5 +838,14 @@ db.session.commit()
 * To remove a reader with ID of 753: `db.session.delete(Reader.query.get(753))`
   * All of their reviews are deleted as well
 
-
+### Queries and Templates
+* We can combine jinja2 template with DB queries in our routes
 ```
+@app.route('/books/<year>')
+def books(year):
+   books = Book.query.filter_by(year = year)
+   return render_template('display_books.html', year = year, books = books)
+```
+* We can also sue the `.first_or_404()` method to gracefully handle any DB query failures
+  * It returns HTTP 404 not found response code
+  * E.g. `reader = Reader.query.filter_by(id = user_id).first_or_404(description = "There is no user with this ID.")` 
