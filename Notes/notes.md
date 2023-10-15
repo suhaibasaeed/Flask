@@ -822,3 +822,21 @@ reader = Reader.query.get(3)
 reader.email = “new_email@example.com”
 db.session.commit()
 ```
+
+### Session: Removing DB Entries
+* We need to be careful with one-to-many relationships when removing
+  * Removing a reader we would think that their reviews are also deleted
+  * Similarly removing a book we would think would also remove the reviews for it
+    * Called **cacading deletion**
+  * The way we defined our models this **would not** happen by default
+    * So we would need to enable this when defining the models initially
+      * Done by adding `cascade` parameter to `.relationship` field of `Reader` and `Book`
+        * As below
+        * reviews = db.relationship('Review', backref='reviewer', lazy='dynamic', cascade = 'all, delete, delete-orphan')
+      * In practice we'd need to migrate/re-init DB to change this
+* On the other hand removing a review doesn't affect `Book` and `Reader` tables in cascading way
+* To remove a reader with ID of 753: `db.session.delete(Reader.query.get(753))`
+  * All of their reviews are deleted as well
+
+
+```
