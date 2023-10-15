@@ -813,3 +813,12 @@ try:
 except:
     db.session.rollback()
 ```
+
+### Session: Updating Existing Entries
+* Sometimes we might just want to update value in an existing column entry
+  * E.g. we change email address of a reader with id of 3
+```
+reader = Reader.query.get(3)
+reader.email = “new_email@example.com”
+db.session.commit()
+```
