@@ -26,6 +26,7 @@ class Song(db.Model):
 class Item(db.Model):
   id = db.Column(db.Integer, primary_key = True)
   song_id = db.Column(db.Integer,  db.ForeignKey('song.id'))
+  playlist_id = db.Column(db.Integer,  db.ForeignKey('playlist.id'))
 
 #create the Playlist model here + add a nice representation method
 class Playlist(db.Model):
