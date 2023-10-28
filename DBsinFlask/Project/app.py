@@ -1,12 +1,14 @@
 from flask import Flask, render_template
-#import SQLALchemy
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 #set the SQLALCHEMY_DATABASE_URI key
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'you-will-never-guess'
-#create an SQLAlchemy object named `db` and bind it to your app
+app.config['SQLALCHEMY_DATABASE_URI'] = 'song_library.db'
 
+# create an SQLAlchemy object named `db` and bind it to your app
+db = SQLAlchemy(app)
 #a simple initial greeting
 @app.route('/')
 @app.route('/index')
