@@ -32,7 +32,6 @@ class Item(db.Model):
 class Playlist(db.Model):
   id = db.Column(db.Integer, primary_key = True)
   name = db.Column(db.String(50), index = True, unique = False) 
-  songs = db.relationship('Song', backref='playlist', lazy='dynamic')
   items = db.relationship('Item', backref='playlist', lazy='dynamic')
   user_id = db.Column(db.Integer,  db.ForeignKey('user.id'))
   
